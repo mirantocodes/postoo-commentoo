@@ -1,0 +1,7 @@
+<% @posts.each do |post| %>
+  <h1>
+    <%= link_to post.content, post, class: "text-decoration-none text-dark" %>
+    <%= link_to 'edit', edit_post_path(post), class: "fs-6" %>
+    <%= link_to 'delete', post_path(post), data: { turbo_method: :delete }, class: "fs-6" %>
+  </h1>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Edit post</h1>
+<%= form_with model: @post do |form| %>
+  <%= form.text_area :content, class: "form-control" %>
+  <% @post.errors.full_messages_for(:content).each do |message| %>
+    <span class="text-danger"><%= message %></span>
+  <% end %>
+  <%= form.submit 'Update post', class: "btn btn-primary w-100" %>
+<% end %>
