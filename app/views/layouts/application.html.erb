@@ -10,9 +10,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="container">
-    <%= link_to 'new', new_post_path, class: "py-3 d-block" %>
-    <%= link_to 'back', root_path, class: "py-3 d-block" %>
+  <body class="container col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5">
+    <%= link_to '', root_path, class: "d-block bi bi-arrow-left-circle fs-3" %>
     <%= yield %>
   </body>
 </html>

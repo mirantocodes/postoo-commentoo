@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @post = Post.new
   end
 
   def show
@@ -16,7 +17,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      @posts = Post.all
+      render :index, status: :unprocessable_entity
     end
   end
 
@@ -27,7 +29,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to post_path
+      redirect_to root_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +38,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
   end
 
   private
