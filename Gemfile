@@ -11,7 +11,6 @@ gem "sprockets-rails"
 
 # Add bootstrap
 gem "cssbundling-rails"
-gem "jsbundling-rails"
 
 # Use pg as the database for Active Record
 gem "pg", "~> 1.1"
