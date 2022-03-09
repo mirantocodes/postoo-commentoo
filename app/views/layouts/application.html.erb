@@ -11,7 +11,13 @@
   </head>
 
   <body class="container col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5">
-    <%= link_to '', root_path, class: "d-block bi bi-arrow-left-circle fs-3" %>
+    <div class="row justify-content-between">
+      <%= link_to '', root_path, class: "col-8 bi bi-arrow-left-circle fs-3" %>
+      <span class="col-3 text-end">
+        <%= User.first.name %>
+        <%= image_tag("undraw_female_avatar_w3jk.png", width: "40%", alt: "User profile picture")  %>
+      </span>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -1,12 +1,16 @@
 <div class="border rounded-bottom" style="margin-top: -6px;">
   <%= form_with model: [post, post.comments.build] do |form| %>
+    <%= form.hidden_field :user_id, value: 1 %>
     <%= form.text_field :content, placeholder: "add comment..", class: "form-control border-0 mb-1" %>
   <% end %>
   <div class="card-text mx-1 ms-2">
     <div class="row">
       <% post.comments.each do |comment| %>
         <% unless comment.content.nil? %>
-          <p class="col-11"><%= comment.content %></p>
+          <p class="col-11">
+            <span class="text-secondary"><%= comment.user.name unless comment.user_id.nil? %></span>
+            <%= comment.content %>
+          </p>
           <%= link_to '', post_comment_path(post, comment), data: { turbo_method: :delete }, class: "text-end text-danger col-1 bi bi-trash3" %>
         <% end %>
       <% end %>
