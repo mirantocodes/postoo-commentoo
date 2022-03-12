@@ -1,0 +1,5 @@
+<%= form_with url: logins_path, class: "input-group input-group-sm" do |form| %>
+  <%= form.text_field :name, placeholder: "name", class: "form-control" %>
+  <%= form.password_field :password, placeholder: "password", class: "form-control" %>
+  <%= form.submit 'log in', class: 'btn btn-primary' %>
+<% end %>

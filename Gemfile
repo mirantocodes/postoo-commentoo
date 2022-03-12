@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # Add bootstrap
 gem "cssbundling-rails"
 
+# Add bcrypt for secure password
+gem 'bcrypt'
+
 # Use pg as the database for Active Record
 gem "pg", "~> 1.1"
 

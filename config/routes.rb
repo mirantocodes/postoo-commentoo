@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  post   'logins', to: 'logins#create'
+  delete 'logout', to: 'logins#destroy'
 end
