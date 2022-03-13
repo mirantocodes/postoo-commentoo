@@ -1,5 +1,5 @@
 <%= form_with model: post do |form| %>
-  <%= form.hidden_field :user_id, value: 1 %>
+  <%= form.hidden_field :user_id, value: @_current_user.id if logged_in? %>
   <%= form.text_area :content, class: "form-control" %>
   <% post.errors.full_messages_for(:content).each do |message| %>
     <span class="text-danger"><%= message %></span>

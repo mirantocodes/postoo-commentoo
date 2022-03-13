@@ -4,12 +4,12 @@ class LoginsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:current_user_id] = user.id
     end
-    redirect_to root_path
+    redirect_back_or_to root_path
   end
 
   def destroy
     session.delete(:current_user_id)
     @_current_user = nil
-    redirect_to root_path, status: :see_other
+    redirect_back_or_to root_path, status: :see_other
   end
 end

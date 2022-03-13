@@ -1,6 +1,6 @@
 <div class="border rounded-bottom" style="margin-top: -6px;">
   <%= form_with model: [post, post.comments.build] do |form| %>
-    <%= form.hidden_field :user_id, value: 1 %>
+    <%= form.hidden_field :user_id, value: @_current_user.id if logged_in? %>
     <%= form.text_field :content, placeholder: "add comment..", class: "form-control border-0 mb-1" %>
   <% end %>
   <div class="card-text mx-1 ms-2">
