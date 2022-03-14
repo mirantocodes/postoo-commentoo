@@ -8,7 +8,7 @@
       <% unless comment.content.nil? %>
         <p class="row justify-content-between">
           <span class="col-1">
-            <% unless comment.user.picture.nil? %>
+            <% unless comment.user.nil? %>
             <%= image_tag(comment.user.picture, width: "40", alt: "User profile picture") %>
             <% end %>
           </span>

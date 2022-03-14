@@ -1,7 +1,7 @@
 <div class="card mb-2">
   <div class="card-link row justify-content-between">
     <span class="col-8 text-secondary">
-      <% unless post.user.picture.nil? %>
+      <% unless post.user.nil? %>
       <%= image_tag(post.user.picture, width: "40", alt: "User profile picture") %>
       <% end %>
       <%= post.user.name unless post.user.nil? %>
