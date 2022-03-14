@@ -8,7 +8,9 @@
       <% unless comment.content.nil? %>
         <p class="row justify-content-between">
           <span class="col-1">
+            <% unless comment.user.picture.nil? %>
             <%= image_tag(comment.user.picture, width: "40", alt: "User profile picture") %>
+            <% end %>
           </span>
           <span class="col-10">
             <span class="d-block text-secondary"><%= comment.user.name unless comment.user_id.nil? %></span>
