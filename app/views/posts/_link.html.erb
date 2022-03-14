@@ -1,2 +1,4 @@
-<%= link_to '', edit_post_path(post), class: " fs-6 bi bi-pencil" %>
-<%= link_to '', post_path(post), data: { turbo_method: :delete }, class: "fs-6 bi bi-trash-fill text-danger" %>
+<% if logged_in? && @_current_user.id == post.user_id %>
+  <%= link_to '', edit_post_path(post), class: " fs-6 bi bi-pencil" %>
+  <%= link_to '', post_path(post), data: { turbo_method: :delete }, class: "fs-6 bi bi-trash-fill text-danger" %>
+<% end %>

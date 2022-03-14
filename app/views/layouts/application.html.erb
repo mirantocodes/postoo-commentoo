@@ -23,7 +23,7 @@
       <% if logged_in? %>
         <span class="col-10 text-end">
           <%= @_current_user.name %>
-          <%= image_tag("undraw_female_avatar_w3jk.png", width: "46", alt: "User profile picture")  %>
+          <%= image_tag(@_current_user.picture, width: "46", alt: "User profile picture") %>
           <%= link_to '', logout_path, data: { turbo_method: :delete } , class: "fs-5 bi bi-box-arrow-right text-secondary" %>
         </span>
       <% else %>
