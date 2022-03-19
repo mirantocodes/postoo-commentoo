@@ -10,4 +10,7 @@ Rails.application.routes.draw do
 
   post   'logins', to: 'logins#create'
   delete 'logout', to: 'logins#destroy'
+
+  # get 'users/new', to: 'users#new'
+  resources :users
 end
