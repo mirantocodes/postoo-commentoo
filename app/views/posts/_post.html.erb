@@ -9,12 +9,13 @@
   <h1 class="card-text mb-2 mx-1">
     <%= link_to post.content, post, class: "text-decoration-none text-dark" %>
   </h1>
-  <div class="card-text border-top">
+  <div class="card-text">
     <% if post.comments.size == 0 %>
-      <span class="ms-2 bi bi-chat fs-5"><span class="fs-6 text-secondary"> 0</span></span>
+      <%= link_to '', post, class: "hover-info px-2 ms-1 bi bi-chat fs-5 text-secondary" %>
+      <span class="fs-6 text-secondary"> 0</span>
     <% else %>
-      <span class="ms-2 bi bi-chat-text fs-5">
-      <span class="fs-6 text-secondary"> <%= post.comments.size %></span></span>
+      <%= link_to '', post, class: "hover-info px-2 ms-1 bi bi-chat-text fs-5 text-secondary" %>
+      <span class="fs-6 text-secondary"> <%= post.comments.size %></span>
     <% end %>
   </div>
 </div>

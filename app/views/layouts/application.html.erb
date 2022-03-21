@@ -10,12 +10,34 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="container col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5">
+  <style>
+    .hover-text-info:hover {
+        color: #0b5ed7 !important;
+    }
+    .hover-text-danger:hover {
+        color: #e30012 !important;
+    }
+
+    .hover-info:hover {
+        border-radius: 50%;
+        padding: 4px 8px;
+        background-color: lightblue;
+        color: #0b5ed7 !important;
+    }
+    .hover-danger:hover {
+        border-radius: 50%;
+        padding: 4px 8px;
+        background-color: lightpink;
+        color: #bb2d3b !important;
+    }
+  </style>
+
+  <body class="container bg-light col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5 ">
     <% if flash[:notice] %>
-      <div class="p-1 mb-0 alert alert-danger alert-dismissible fade show" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <span class="bi bi-exclamation-triangle-fill"></span>
         <%= flash[:notice] %>
-        <button class="p-2 btn btn-sm btn-close" data-bs-dismiss="alert"></button>
+        <button class="btn btn-close" data-bs-dismiss="alert"></button>
       </div>
     <% end %>
     <div class="row justify-content-between">

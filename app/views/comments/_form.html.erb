@@ -1,4 +1,4 @@
-<div class="border rounded-bottom" style="margin-top: -6px;">
+<div class="border rounded-bottom bg-white border-top-0" style="margin-top: -6px;">
   <%= form_with model: [post, post.comments.build] do |form| %>
     <%= form.hidden_field :user_id, value: @_current_user.id if logged_in? %>
     <%= form.text_field :content, placeholder: "Add a comment..", class: "form-control border-0 mb-1" %>
@@ -16,7 +16,7 @@
           </span>
           <span class="col-1 text-end pe-3">
             <% if logged_in? && @_current_user.id == comment.user_id %>
-              <%= link_to '', post_comment_path(post, comment), data: { turbo_method: :delete }, class: "text-danger bi bi-trash3" %>
+              <%= link_to '', post_comment_path(post, comment), data: { turbo_method: :delete }, class: "hover-text-danger text-danger bi bi-trash3" %>
             <% end %>
           </span>
         </p>
