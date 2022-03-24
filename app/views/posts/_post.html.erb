@@ -18,4 +18,9 @@
       <span class="fs-6 text-secondary"> <%= post.comments.size %></span>
     <% end %>
   </div>
+  <% if params[:id] %>
+    <div class="card-text">
+    <%= render 'comments/form', post: post %>
+    </div>
+  <% end %>
 </div>

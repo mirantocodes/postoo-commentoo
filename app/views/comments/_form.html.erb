@@ -1,8 +1,19 @@
-<div class="border rounded-bottom bg-white border-top-0" style="margin-top: -6px;">
-  <%= form_with model: [post, post.comments.build] do |form| %>
-    <%= form.hidden_field :user_id, value: @_current_user.id if logged_in? %>
-    <%= form.text_field :content, placeholder: "Add a comment..", class: "form-control border-0 mb-1" %>
-  <% end %>
+<div class="mt-2 bg-white" style="margin-top: -6px;">
+  <div class="row justify-content-between">
+    <span class="col-1">
+      <%= picture(@_current_user) %>
+    </span>
+    <span class="col-11">
+      <%= form_with model: [post, post.comments.build] do |form| %>
+        <%= form.hidden_field :user_id, value: @_current_user.id if logged_in? %>
+        <%= form.text_field :content, placeholder: "Add a comment..",
+                            class: "bg-light rounded-pill form-control ps-3 mb-3",
+                            style: "flex: 0 0 auto;  width: 95%; margin-left: -3px;"
+                            %>
+      <% end %>
+    </span>
+    <span class="col-1 text-end pe-3 align-self-center"></span>
+  </div>
   <div class="card-text">
     <% post.comments.each do |comment| %>
       <% unless comment.content.nil? %>
@@ -10,11 +21,11 @@
           <span class="col-1">
             <%= picture(comment.user) %>
           </span>
-          <span class="col-10">
+          <span class="col-10 bg-light rounded-pill px-3" style="margin-right: -15px;">
             <span class="d-block text-secondary"><%= comment.user.name unless comment.user_id.nil? %></span>
             <%= comment.content %>
           </span>
-          <span class="col-1 text-end pe-3">
+          <span class="col-1 text-end pe-3 align-self-center">
             <% if logged_in? && @_current_user.id == comment.user_id %>
               <%= link_to '', post_comment_path(post, comment), data: { turbo_method: :delete }, class: "hover-text-danger text-danger bi bi-trash3" %>
             <% end %>
