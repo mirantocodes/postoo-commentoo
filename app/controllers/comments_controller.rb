@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
 
   def require_login
     unless logged_in?
-      flash[:notice] = "Require login!"
+      flash[:notice] = "Please login or sign up!"
       post = Post.find(params[:post_id])
       redirect_to post_path(post)
     end

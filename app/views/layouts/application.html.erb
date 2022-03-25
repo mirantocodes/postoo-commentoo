@@ -62,14 +62,6 @@
   </style>
 
   <body class="container bg-light col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5 ">
-    <% if flash[:notice] %>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <span class="bi bi-exclamation-triangle-fill"></span>
-        <%= flash[:notice] %>
-        <button class="btn btn-close" data-bs-dismiss="alert"></button>
-      </div>
-    <% end %>
-
     <div class="row justify-content-between">
       <a href="/" class="navbar-brand text-center">
         <span class="bi bi-circle-fill display-6 color-theme"></span>
@@ -85,10 +77,22 @@
         </span>
       <% else %>
         <div class="col-12 mt-2">
-          <%= render 'logins/form' %>
+          <% if content_for?(:signup) %>
+            <%= yield :signup %>
+          <% else %>
+            <%= render 'logins/form' %>
+          <% end %>
         </div>
       <% end %>
     </div>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-danger alert-dismissible fade show my-1" role="alert">
+        <span class="bi bi-exclamation-triangle-fill"></span>
+        <%= flash[:notice] %>
+        <button class="btn btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>

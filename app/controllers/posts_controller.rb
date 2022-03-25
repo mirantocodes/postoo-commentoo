@@ -54,7 +54,7 @@ class PostsController < ApplicationController
 
   def require_login
     unless logged_in?
-      flash[:notice] = "Require login!"
+      flash[:notice] = "Please login or sign up!"
       redirect_back_or_to root_path
     end
   end
