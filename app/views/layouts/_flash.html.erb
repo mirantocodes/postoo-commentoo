@@ -1,0 +1,7 @@
+<% if flash[:notice] %>
+  <div class="alert alert-danger alert-dismissible fade show my-1" role="alert">
+    <span class="bi bi-exclamation-triangle-fill"></span>
+    <%= flash[:notice] %>
+    <button class="btn btn-close" data-bs-dismiss="alert"></button>
+  </div>
+<% end %>

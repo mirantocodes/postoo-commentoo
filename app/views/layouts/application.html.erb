@@ -8,91 +8,14 @@
 
     <%= favicon_link_tag 'Postoo-Commentoo.png' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <style>
-    a:hover {
-        color: purple;
-    }
-
-    .hover-text-info:hover {
-        color: #662d91 !important;
-    }
-    .hover-text-danger:hover {
-        color: #e30012 !important;
-    }
-
-    .hover-info:hover {
-        border-radius: 50%;
-        padding: 4px 8px;
-        background-color: #DDA0DD;
-        color: #662d91 !important;
-    }
-    .hover-danger:hover {
-        border-radius: 50%;
-        padding: 4px 8px;
-        background-color: lightpink;
-        color: #bb2d3b !important;
-    }
-
-    .btn-gradient {
-        border-color: white;
-        background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
-    }
-
-    .color-theme {
-        color: #662d91 !important;
-    }
-    .color-theme-light {
-        color: #DDA0DD !important;
-    }
-    .color-brand {
-        color: darkmagenta !important;
-    }
-
-    input:focus {
-        border:1px solid #DDA0DD !important;
-        box-shadow: 0 0 10px #DDA0DD !important; ;
-    }
-    textarea:focus {
-        border:1px solid #DDA0DD !important;
-        box-shadow: 0 0 10px #DDA0DD !important; ;
-    }
-  </style>
 
   <body class="container bg-light col-12 col-sm-10 col-md-7 col-lg-6 col-xl-5 ">
-    <div class="row justify-content-between">
-      <a href="/" class="navbar-brand text-center">
-        <span class="bi bi-circle-fill display-6 color-theme"></span>
-        <span class="bi bi-circle-fill display-6 color-theme-light"></span>
-        <span class="color-brand">PostooCommentoo</span>
-      </a>
-      <% if logged_in? %>
-        <%= link_to '', root_path, class: "col-2 bi bi-arrow-left-circle fs-3 color-theme" %>
-        <span class="col-10 text-end mb-2">
-          <%= @_current_user.name %>
-          <%= picture(@_current_user) %>
-          <%= link_to '', logout_path, data: { turbo_method: :delete }, class: "fs-5 bi bi-box-arrow-right color-theme" %>
-        </span>
-      <% else %>
-        <div class="col-12 mt-2">
-          <% if content_for?(:signup) %>
-            <%= yield :signup %>
-          <% else %>
-            <%= render 'logins/form' %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-
-    <% if flash[:notice] %>
-      <div class="alert alert-danger alert-dismissible fade show my-1" role="alert">
-        <span class="bi bi-exclamation-triangle-fill"></span>
-        <%= flash[:notice] %>
-        <button class="btn btn-close" data-bs-dismiss="alert"></button>
-      </div>
-    <% end %>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/flash' %>
 
     <%= yield %>
   </body>

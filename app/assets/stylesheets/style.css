@@ -1,0 +1,47 @@
+a:hover {
+    color: purple;
+}
+
+.hover-text-info:hover {
+    color: #662d91 !important;
+}
+.hover-text-danger:hover {
+    color: #e30012 !important;
+}
+
+.hover-info:hover {
+    border-radius: 50%;
+    padding: 4px 8px;
+    background-color: #DDA0DD;
+    color: #662d91 !important;
+}
+.hover-danger:hover {
+    border-radius: 50%;
+    padding: 4px 8px;
+    background-color: lightpink;
+    color: #bb2d3b !important;
+}
+
+.btn-gradient {
+    border-color: white;
+    background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+}
+
+.color-theme {
+    color: #662d91 !important;
+}
+.color-theme-light {
+    color: #DDA0DD !important;
+}
+.color-brand {
+    color: darkmagenta !important;
+}
+
+input:focus {
+    border:1px solid #DDA0DD !important;
+    box-shadow: 0 0 10px #DDA0DD !important; ;
+}
+textarea:focus {
+    border:1px solid #DDA0DD !important;
+    box-shadow: 0 0 10px #DDA0DD !important; ;
+}

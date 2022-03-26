@@ -1,0 +1,18 @@
+<div class="row justify-content-between">
+  <a href="/" class="navbar-brand text-center">
+    <span class="bi bi-circle-fill display-6 color-theme"></span>
+    <span class="bi bi-circle-fill display-6 color-theme-light"></span>
+    <span class="color-brand">PostooCommentoo</span>
+  </a>
+  <% if logged_in? %>
+    <%= render 'logins/nav' %>
+  <% else %>
+    <div class="col-12 mt-2">
+      <% if content_for?(:signup) %>
+        <%= yield :signup %>
+      <% else %>
+        <%= render 'logins/form' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
