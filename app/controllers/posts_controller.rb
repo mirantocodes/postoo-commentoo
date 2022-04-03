@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     store_url
-    @posts = Post.all
+    @posts = Post.recent
     @post = Post.new
   end
 
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_path, status: :see_other
+    redirect_back_or_to root_path, status: :see_other
   end
 
   private

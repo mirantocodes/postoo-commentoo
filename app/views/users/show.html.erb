@@ -7,6 +7,6 @@
   <% end %>
 </div>
 
-<% @user.posts.each do |post| %>
+<% @user.posts.recent.each do |post| %>
   <%= render 'posts/post', post: post %>
 <% end %>

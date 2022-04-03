@@ -15,7 +15,7 @@
     <span class="col-1 text-end pe-3 align-self-center"></span>
   </div>
   <div class="card-text">
-    <% post.comments.each do |comment| %>
+    <% post.comments.recent.each do |comment| %>
       <% unless comment.content.nil? %>
         <p class="row justify-content-between">
           <span class="col-1">
