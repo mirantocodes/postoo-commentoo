@@ -1,11 +1,11 @@
 <div class="card mb-2">
   <div class="card-link row justify-content-between">
-    <span class="col-8 text-secondary">
+    <div class="col-10 text-secondary">
       <%= picture(post.user) %>
-      <span class="text-dark"><%= post.user.name unless post.user.nil? %></span>
-      <%= time_ago_in_words_only_today post.created_at%>
-    </span>
-    <span class="col-2 text-end me-1"><%= render 'posts/link', post: post %></span>
+      <span class="text-dark"><%= truncate post.user.name %></span>
+      <time><%= time_ago_in_words_only_today post.created_at%></time>
+    </div>
+    <div class="col-2 text-end px-3"><%= render 'posts/link', post: post %></div>
   </div>
   <h1 class="card-text mb-2 mx-1">
     <%= link_to post.content, post, class: "text-decoration-none text-dark" %>
