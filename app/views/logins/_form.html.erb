@@ -1,13 +1,9 @@
-<div class="row">
-  <div class="col-12">
-    <%= form_with url: logins_path, class: "input-group input-group" do |form| %>
-      <%= form.text_field :name, placeholder: "name", class: "form-control" %>
-      <%= form.password_field :password, placeholder: "password", class: "form-control" %>
-      <%= form.submit 'Login', class: 'btn btn-gradient text-white' %>
-    <% end %>
-  </div>
-    <p class="col-12 text-center mt-1 border-light">
-      Not have an account?
-      <%= link_to 'Sign up now', new_user_path, class: "" %>
-    </p>
-</div>
+<%= form_with url: logins_path, class: "col-12 mt-2 input-group input-group" do |form| %>
+  <%= form.text_field :name, placeholder: "name", class: "form-control" %>
+  <%= form.password_field :password, placeholder: "password", class: "form-control" %>
+  <%= form.submit 'Login', class: 'btn btn-gradient' %>
+<% end %>
+<p class="col-12 text-center mt-1">
+  Not have an account?
+  <%= link_to 'Sign up now', new_user_path %>
+</p>

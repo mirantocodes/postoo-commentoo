@@ -1,4 +1,4 @@
-<div class="row justify-content-between">
+<header class="row">
   <a href="/" class="navbar-brand text-center">
     <span class="bi bi-circle-fill display-6 color-theme"></span>
     <span class="bi bi-circle-fill display-6 color-theme-light"></span>
@@ -7,12 +7,10 @@
   <% if logged_in? %>
     <%= render 'logins/nav' %>
   <% else %>
-    <div class="col-12 mt-2">
-      <% if content_for?(:signup) %>
-        <%= yield :signup %>
-      <% else %>
-        <%= render 'logins/form' %>
-      <% end %>
-    </div>
+    <% if content_for?(:signup) %>
+      <%= yield :signup %>
+    <% else %>
+      <%= render 'logins/form' %>
+    <% end %>
   <% end %>
-</div>
+</header>

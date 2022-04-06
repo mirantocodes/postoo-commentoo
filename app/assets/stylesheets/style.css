@@ -22,9 +22,10 @@ a:hover {
     color: #bb2d3b !important;
 }
 
-.btn-gradient {
+.btn-gradient, .btn-gradient:hover {
     border-color: white;
     background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+    color: white;
 }
 
 .color-theme {
