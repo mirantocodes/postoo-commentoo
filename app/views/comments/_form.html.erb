@@ -1,5 +1,5 @@
-<div class="mt-2 bg-white" style="margin-top: -6px;">
-  <div class="row justify-content-between">
+<article class="card-text mt-2">
+  <div class="row">
     <span class="col-1">
       <%= picture(@_current_user) %>
     </span>
@@ -12,26 +12,23 @@
                             %>
       <% end %>
     </span>
-    <span class="col-1 text-end pe-3 align-self-center"></span>
   </div>
-  <div class="card-text">
-    <% post.comments.recent.each do |comment| %>
-      <% unless comment.content.nil? %>
-        <p class="row justify-content-between">
-          <span class="col-1">
-            <%= picture(comment.user) %>
-          </span>
-          <span class="col-10 bg-light rounded-pill px-3" style="margin-right: -15px;">
-            <span class="d-block text-secondary"><%= truncate comment.user.name %></span>
-            <%= comment.content %>
-          </span>
-          <span class="col-1 text-end pe-3 align-self-center">
-            <% if logged_in? && @_current_user.id == comment.user_id %>
-              <%= link_to '', post_comment_path(post, comment), data: { turbo_method: :delete }, class: "hover-text-danger text-danger bi bi-trash3" %>
-            <% end %>
-          </span>
-        </p>
-      <% end %>
+  <% post.comments.recent.each do |comment| %>
+    <% unless comment.content.nil? %>
+      <p class="row justify-content-between">
+        <span class="col-1">
+          <%= picture(comment.user) %>
+        </span>
+        <span class="col-10 bg-light rounded-pill px-3" style="margin-right: -15px;">
+          <span class="d-block text-secondary"><%= truncate comment.user.name %></span>
+          <%= comment.content %>
+        </span>
+        <span class="col-1 text-end pe-3 align-self-center">
+          <% if logged_in? && @_current_user.id == comment.user_id %>
+            <%= link_to '', post_comment_path(post, comment), data: { turbo_method: :delete }, class: "hover-text-danger text-danger bi bi-trash3" %>
+          <% end %>
+        </span>
+      </p>
     <% end %>
-  </div>
-</div>
+  <% end %>
+</article>
