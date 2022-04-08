@@ -1,12 +1,14 @@
-<div class="text-center"><%= picture(@user, width: 138) %></div>
-<div class="text-center">
-  <h2 class="lead font-monospace"><%= @user.name %></h2>
-  <% if @user == current_user %>
-    <%= link_to('delete account', user_path(@user), data: { turbo_method: :delete, turbo_confirm: "Delete user?" },
-                class: "fs-6 bi bi-trash-fill btn btn-sm btn-danger" ) %>
-  <% end %>
-</div>
+<main>
+  <header class="text-center">
+    <%= picture(@user, width: 138) %>
+    <h2 class="lead font-monospace"><%= @user.name %></h2>
+    <% if @user == current_user %>
+      <%= link_to('delete account', user_path(@user), data: { turbo_method: :delete, turbo_confirm: "Delete user?" },
+                  class: "fs-6 bi bi-trash-fill btn btn-sm btn-danger" ) %>
+    <% end %>
+  </header>
 
-<% @user.posts.recent.each do |post| %>
-  <%= render 'posts/post', post: post %>
-<% end %>
+  <% @user.posts.recent.each do |post| %>
+    <%= render 'posts/post', post: post %>
+  <% end %>
+</main>
