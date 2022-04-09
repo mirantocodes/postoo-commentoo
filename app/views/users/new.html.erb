@@ -1,22 +1,20 @@
-<% content_for :signup do %>
-  <p class="col-12 text-center mt-2 border-light">
-    Have an account?
-    <%= link_to 'Login now', root_path %>
-  </p>
+<p class="text-center mt-2 border-light">
+  Have an account?
+  <%= link_to 'Login now', root_path %>
+</p>
 
-  <h1>Sign up</h1>
+<h1>Sign up</h1>
 
-  <%= form_with model: @user do |form| %>
-    <%= form.label :name, class: 'form-label' %>
-    <%= form.text_field :name, class: 'form-control' %>
-    <% @user.errors.full_messages_for(:name).each do |message| %>
-      <span class="text-danger"><%= message %></span><br>
-    <% end %>
-    <%= form.label :password, class: 'form-label' %>
-    <%= form.password_field :password, class: 'form-control'  %>
-    <% @user.errors.full_messages_for(:password).each do |message| %>
-      <span class="text-danger"><%= message %></span>
-    <% end %>
-    <%= form.submit class: 'btn btn-gradient w-100 my-2'%>
+<%= form_with model: @user do |form| %>
+  <%= form.label :name, class: 'form-label' %>
+  <%= form.text_field :name, class: 'form-control' %>
+  <% @user.errors.full_messages_for(:name).each do |message| %>
+    <span class="text-danger"><%= message %></span><br>
   <% end %>
+  <%= form.label :password, class: 'form-label' %>
+  <%= form.password_field :password, class: 'form-control'  %>
+  <% @user.errors.full_messages_for(:password).each do |message| %>
+    <span class="text-danger"><%= message %></span>
+  <% end %>
+  <%= form.submit class: 'btn btn-gradient w-100 my-2'%>
 <% end %>
