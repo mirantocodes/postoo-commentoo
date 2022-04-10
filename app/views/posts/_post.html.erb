@@ -2,7 +2,7 @@
   <div class="card-link">
     <%= picture(post.user) %>
     <span><%= truncate post.user.name %></span>
-    <time class="text-secondary" datetime="<%= post.created_at.localtime %>"><%= time_ago_in_words_only_today post.created_at%></time>
+    <%= time_ago post.created_at%>
     <span class="float-end pe-1"><%= render 'posts/link', post: post %></span>
   </div>
   <h1 class="card-text mb-2 mx-1">

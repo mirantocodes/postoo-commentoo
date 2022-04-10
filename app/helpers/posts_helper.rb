@@ -1,11 +1,17 @@
 module PostsHelper
-  def time_ago_in_words_only_today(time)
+  def time_ago(time)
     if time > Time.now.beginning_of_day
-      time_ago_in_words time
+      tag.time datetime: time.localtime.strftime("%H:%M"), class: 'text-secondary' do
+        time_ago_in_words time
+      end
     elsif time > Time.now.beginning_of_year
-      time.strftime("%b %d")
+      tag.time datetime: time.strftime("%Y-%m-%d"), class: 'text-secondary' do
+        time.strftime("%b %d")
+      end
     else
-      time.strftime("%b %d %Y")
+      tag.time datetime: time.strftime("%Y-%m-%d"), class: 'text-secondary' do
+        time.strftime("%b %d %Y")
+      end
     end
   end
 end
